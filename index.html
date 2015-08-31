@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" ng-app="zorkGame">
+<head>
+    <meta charset="utf-8">
+    <title>Zork Game</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="lib/angular.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/services.js"></script>
+</head>
+<body>
+    <div class="container" ng-controller="mainCtrl">
+        <div class="page-header">
+            <h1>Zork Game</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="row">
+            <div ng-repeat="cmd in commands">
+                <div print-cmd-answer></div>
+            </div>
+        </div>
+        <div class="row">
+            <form>
+                <label for="command" class-"hide">What would you like to do?</label>
+                <input type="text" id="command" ng-model="command" class="form-control" run-cmd />
+            </form>
+        </div>
+    </div>
+</body>
+</html>
