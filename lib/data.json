@@ -1,0 +1,21 @@
+[{
+    "room": 12345,
+    "name": "Castle foreyard",
+    "actions": {
+        "look": {
+            "left": {
+                "answer": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+            },
+            "at": {
+                "myself": {
+                    "answer": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                }
+            }
+        },
+        "say": {
+            "default": {
+                "answer": "$1"
+            }
+        }
+    }
+}]
