@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Zork Game</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <script src="lib/angular.js"></script>
+    <script src="lib/angular.min.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/directives.js"></script>
     <script src="js/services.js"></script>
@@ -16,7 +16,7 @@
             <p>Welcome to a mysterious land full of dragons, dungeons and witches! You have just entered the main castle hall. What would you like to do next?</p>
         </div>
         <div class="row">
-            <div ng-repeat="cmd in commands">
+            <div ng-repeat="cmd in commands | limitTo: -5">
                 <div print-cmd-answer></div>
             </div>
         </div>

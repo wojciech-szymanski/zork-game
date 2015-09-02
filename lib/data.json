@@ -1,21 +1,35 @@
-[{
-    "room": 12345,
-    "name": "Castle foreyard",
-    "actions": {
-        "look": {
-            "left": {
-                "answer": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+{
+    "ROOM_1": {
+        "name": "Castle hall",
+        "actions": {
+            "look": {
+                "at": {
+                    "room": {
+                        "answer": "It looks like there is some large wardrobe in the corner.",
+                    },
+                    "myself": {
+                        "answer": "Looking good today!"
+                    }
+                },
             },
-            "at": {
-                "myself": {
-                    "answer": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            "say": {
+                "answer": "%s"
+            },
+            "open": {
+                "wardrobe": {
+                    "answer": "Entering Narnia...",
+                    "next": "ROOM_2"
                 }
             }
-        },
-        "say": {
-            "default": {
-                "answer": "$1"
+        }
+    },
+    "ROOM_2": {
+        "name": "Wardrobe",
+        "actions": {
+            "run": {
+                "answer": "Probably a good idea",
+                "next": "ROOM_1"
             }
         }
     }
-}]
+}

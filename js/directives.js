@@ -6,7 +6,7 @@ zorkGame
                     if (e.which === 13 && scope.command) {
                         scope.commands.push({
                             'command': scope.command,
-                            'answer': DataSource.answer(scope.command)
+                            'answer': DataSource.getAnswer(scope.command)
                         });
                         scope.command = '';
                     }

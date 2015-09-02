@@ -1,40 +1,62 @@
-zorkGame.factory('DataSource', function() {
-    return {
-        default_answer: 'I am sorry, I do not understand!',
-        data: {
-            "room_id": 12345,
-            "name": "Castle foreyard",
-            "actions": {
-                "look": {
-                    "at": {
-                        "room": {
-                            "answer": "It looks like there is some large wardrobe in the corner.",
+zorkGame
+    .factory('DataSource', ['$http', function($http) {
+        return {
+            default_answer: 'I am sorry, I do not understand!',
+            current_room: "ROOM_1",
+            data: {
+                "ROOM_1": {
+                    "name": "Castle hall",
+                    "actions": {
+                        "look": {
+                            "at": {
+                                "room": {
+                                    "answer": "It looks like there is some large wardrobe in the corner.",
+                                },
+                                "myself": {
+                                    "answer": "Looking good today!"
+                                }
+                            },
                         },
-                        "myself": {
-                            "answer": "Looking good today!"
+                        "say": {
+                            "answer": "%s"
+                        },
+                        "open": {
+                            "wardrobe": {
+                                "answer": "Entering Narnia...",
+                                "next": "ROOM_2"
+                            }
                         }
-                    },
+                    }
                 },
-                "say": {
-                    "answer": "%s"
+                "ROOM_2": {
+                    "name": "Wardrobe",
+                    "actions": {
+                        "run": {
+                            "answer": "Probably a good idea",
+                            "next": "ROOM_1"
+                        }
+                    }
                 }
-            }
-        },
-        answer: function(command) {
-            var actions = this.data.actions,
-                i = 0;
+            },
+            getAnswer: function(command) {
+                var actions = this.data[this.current_room].actions,
+                    i = 0;
 
-            command = command.split(' ');
-            while (actions.hasOwnProperty(command[i])) {
-                actions = actions[command[i]];
-                i++;
-            }
+                command = command.split(' ');
+                while (actions.hasOwnProperty(command[i])) {
+                    actions = actions[command[i]];
+                    i++;
+                }
 
-            if (actions.hasOwnProperty('answer')) {
-                return actions.answer.replace(/%s/, command.splice(1).join(' '));
-            }
+                if (actions.hasOwnProperty('next')) {
+                    this.current_room = actions.next;
+                }
 
-            return this.default_answer;
+                if (actions.hasOwnProperty('answer')) {
+                    return actions.answer.replace(/%s/, command.splice(1).join(' '));
+                }
+
+                return this.default_answer;
+            }
         }
-    }
-});
+    }]);
