@@ -1,18 +1,22 @@
 zorkGame.factory('DataSource', function() {
     return {
+        default_answer: 'I am sorry, I do not understand!',
         data: {
             "room_id": 12345,
             "name": "Castle foreyard",
             "actions": {
                 "look": {
-                    "left": {
-                        "answer": "It looks like there is an entrance to the stables on the left."
-                    },
                     "at": {
+                        "room": {
+                            "answer": "It looks like there is some large wardrobe in the corner.",
+                        },
                         "myself": {
                             "answer": "Looking good today!"
                         }
-                    }
+                    },
+                },
+                "say": {
+                    "answer": "%s"
                 }
             }
         },
@@ -26,7 +30,11 @@ zorkGame.factory('DataSource', function() {
                 i++;
             }
 
-            return actions.hasOwnProperty('answer') ? actions.answer : 'I am sorry, I do not understand!';
+            if (actions.hasOwnProperty('answer')) {
+                return actions.answer.replace(/%s/, command.splice(1).join(' '));
+            }
+
+            return this.default_answer;
         }
     }
 });
