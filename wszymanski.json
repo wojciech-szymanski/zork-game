@@ -1,0 +1,44 @@
+{
+  "name": "Your name",
+  "github": "https://github.com/wojciech-szymanski/",
+  "relavent_social_media": [
+    "https://uk.linkedin.com/pub/wojciech-szyma%C5%84ski/29/125/75b",
+    "http://stackoverflow.com/users/3477668/irwin"
+  ],
+  "skill_lists": {
+    "major": [
+      {
+        "name": "Javascript",
+        "years_of_experience": 6
+      },
+      {
+        "name": "PHP",
+        "years_of_experience": 4
+      },
+      {
+        "name": "MySQL",
+        "years_of_experience": 2
+      },
+      {
+        "name": "PostgreSQL",
+        "years_of_experience": 2
+      },
+      {
+        "name": "AngularJS",
+        "years_of_experience": 1
+      },
+      {
+        "name": "MongoDB",
+        "years_of_experience": 1
+      }
+    ],
+    "minor": [
+      "Git / CVS / SVN",
+      "Gulp / Grunt",
+      "Unix"
+    ],
+    "learning": [
+      "Python/Django"
+    ]
+  }
+}
