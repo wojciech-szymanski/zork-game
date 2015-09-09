@@ -1,5 +1,3 @@
-'use strict';
-
 /* Controllers */
 var zorkGame = angular.module('zorkGame', []);
 

@@ -1,5 +1,5 @@
 {
-  "name": "Your name",
+  "name": "Wojciech Szymanski",
   "github": "https://github.com/wojciech-szymanski/",
   "relavent_social_media": [
     "https://uk.linkedin.com/pub/wojciech-szyma%C5%84ski/29/125/75b",
@@ -10,6 +10,10 @@
       {
         "name": "Javascript",
         "years_of_experience": 6
+      },
+      {
+        "name": "jQuery",
+        "years_of_experience": 5
       },
       {
         "name": "PHP",
@@ -33,12 +37,14 @@
       }
     ],
     "minor": [
-      "Git / CVS / SVN",
-      "Gulp / Grunt",
+      "Git",
+      "Gulp",
+      "Grunt",
       "Unix"
     ],
     "learning": [
-      "Python/Django"
+      "Python",
+      "Django"
     ]
   }
 }
