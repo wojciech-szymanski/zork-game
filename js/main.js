@@ -3,14 +3,12 @@ var main_data = {
         "name": "Castle hall",
         "actions": {
             "look": {
-                "at": {
-                    "room": {
-                        "answer": "It looks like there is some large wardrobe in the corner.",
-                    },
-                    "myself": {
-                        "answer": "Looking good today!"
-                    }
+                "room": {
+                    "answer": "It looks like there is some large wardrobe in the corner.",
                 },
+                "myself": {
+                    "answer": "Looking good!"
+                }
             },
             "say": {
                 "answer": "%s"
@@ -76,9 +74,14 @@ zorkGame
                     i = 0;
 
                 command = command.split(' ');
-                while (actions.hasOwnProperty(command[i])) {
-                    actions = actions[command[i]];
-                    i++;
+                action = command.shift();
+
+                if (actions.hasOwnProperty(action)) {
+                    for (var i = 0; i < command.length; i++) {
+                        if (actions[action].hasOwnProperty(command[i])) {
+                            actions = actions[action][command[i]];
+                        }
+                    }
                 }
 
                 if (actions.hasOwnProperty('next')) {
